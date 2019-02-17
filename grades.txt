@@ -1,0 +1,7 @@
+JOAN   1   70.5 85
+TAINA   2   49   75
+TOM   3   53   54
+JEFF   4   80   49.5
+SUSAN   5   89   90
+KATHY   6   99   55
+RAYMOND   7    22.5   75
