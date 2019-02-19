@@ -5,12 +5,6 @@
 
 #define SIZE 7
 
-// printf("\n");
-// printf("Welcome to University!\n");
-// printf("\n");
-// printf("Main Menu");
-// printf("\n");
-
 typedef struct
 
 {
@@ -18,6 +12,7 @@ typedef struct
     float subjectBScore;
     int totalNumber;
     char studentName[30];
+
 } student;
 
 
@@ -86,6 +81,14 @@ void writeData(FILE *filepointer,student studentInfo [],int n)
 
 int main()
 {
+    printf("\n");
+    printf("Welcome to University!\n");
+    printf("\n");
+    printf("Grades are now posted");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+
     FILE *filepointer = NULL;
     student studentInfo[SIZE];
     int i = 0;
