@@ -15,7 +15,6 @@ typedef struct
 
 } student;
 
-
 float GetMeanScore(float data[], int n)
 {
     float sum = 0;
@@ -136,10 +135,10 @@ int main()
     ascendingOrder(studentInfo, totalStudents);
     printf("\n");
     printf("\n");
-    printf(" After sorting Data Based On Subject A ");
+    printf("Subject A sorted from lowest to highest");
     printf("\n");
     printf("\n");
-    fprintf(filepointer," After sorting Data Based On Subject A ");
+    fprintf(filepointer,"Subject A sorted from lowest to highest");
     displayInfo(studentInfo, totalStudents);
     writeData(filepointer,studentInfo,SIZE);
     printf("\n");
@@ -157,15 +156,15 @@ int main()
     float stdB = getStandardDeviationScore(subjectBScore, totalStudents);
 
     printf("\n");
-    printf(" Mean Of Subject A:%.2f ", meanA);
+    printf("Mean Of Subject A:%.2f ", meanA);
     printf("\n");
     printf("Mean Of Subject B:%.2f ", meanB);
     printf("\n");
     printf("\n");
-    fprintf(filepointer, " Mean Of Subject A:%.2f ", meanA);
+    fprintf(filepointer, "Mean Of Subject A:%.2f ", meanA);
     printf("\n");
     fprintf(filepointer, "Mean Of Subject B:%.2f ", meanB);
-    printf(" Standard Deviation Of Subject A:%.2f ", stdA);
+    printf("Standard Deviation Of Subject A:%.2f ", stdA);
     printf("\n");
     printf("Standard Deviation Of Subject B:%.2f ", stdB);
     printf("\n");
@@ -176,41 +175,5 @@ int main()
     printf("Processing complete:\n");
     printf("Grades have been output to a saved filed for records\n");
     printf("\n");
-
-// single info options menu
-
-    {
-        int menu_options;
-        int e = 0;
-        while(1)
-        {
-            printf("Menu Options\n");
-            printf("\n");
-            printf("Choose from the options below\n");
-            printf("\n");
-            printf("1. to obtain all the students that got diploma\n");
-            printf("2 to arrange subject A in ascending order\n");
-            printf("3. to calculate the average and standard deviation\n");
-            printf("\n");
-            printf("Press E to exit\n");
-            scanf("%d",&menu_options);
-
-            switch (menu_options)
-            {
-                case 1:
-                    diploma();
-                    break;
-                case 2:
-                    sortA();
-                    break;
-                case 3:
-                    avg,std;
-                    break;
-                case 4:
-                    exit(e);
-                default:
-                    printf("not available: please select another option");
-            }
-        }
-    }
+    return 0;
 }
