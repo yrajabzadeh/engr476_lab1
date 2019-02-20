@@ -70,24 +70,30 @@ float getStandardDeviationScore(float data[], int n)
 }
 
 
-void writeData(FILE *filepointer,student studentInfo [],int n)
+void writeData(FILE *file_pointer,student studentInfo [],int n)
 {
     int i;
     for (i = 0; i < n; i++)
     {
-        fprintf(filepointer, "%s %d %f %f ", studentInfo[i].studentName, studentInfo[i].totalNumber, studentInfo[i].subjectAScore, studentInfo[i].subjectBScore);
+        fprintf(file_pointer, "%s %d %f %f ", studentInfo[i].studentName, studentInfo[i].totalNumber, studentInfo[i].subjectAScore, studentInfo[i].subjectBScore);
     }
 }
 
 int main()
 {
+
+// run main section 1
+// takes grade scores and outputs them to a saved file
+
     printf("\n");
-    printf("Welcome to University!\n");
     printf("\n");
     printf("Grades are now posted");
     printf("\n");
     printf("\n");
+    printf("Final Grades Results below:");
     printf("\n");
+    printf("\n");
+
 
     FILE *filepointer = NULL;
     student studentInfo[SIZE];
@@ -95,7 +101,7 @@ int main()
     int totalStudents = 0;
     char line[100];
 
-// Open file for Reading
+// section 1.1. Open grades.txt for input
 
     if (NULL == (filepointer = fopen("grades.txt", "r")))
     {
@@ -111,7 +117,7 @@ int main()
     fclose(filepointer);
     displayInfo(studentInfo, totalStudents);
 
-//opening file for writing
+// section 1.2. Saves to output.txt, writing complete output to single file
 
     if (NULL == (filepointer = fopen("output.txt", "w")))
     {
@@ -128,10 +134,15 @@ int main()
     }
 
     ascendingOrder(studentInfo, totalStudents);
+    printf("\n");
+    printf("\n");
     printf(" After sorting Data Based On Subject A ");
+    printf("\n");
+    printf("\n");
     fprintf(filepointer," After sorting Data Based On Subject A ");
     displayInfo(studentInfo, totalStudents);
     writeData(filepointer,studentInfo,SIZE);
+    printf("\n");
 
     float subjectAScore[SIZE];
     float subjectBScore[SIZE];
@@ -145,15 +156,61 @@ int main()
     float stdA = getStandardDeviationScore(subjectAScore, totalStudents);
     float stdB = getStandardDeviationScore(subjectBScore, totalStudents);
 
+    printf("\n");
     printf(" Mean Of Subject A:%.2f ", meanA);
+    printf("\n");
     printf("Mean Of Subject B:%.2f ", meanB);
+    printf("\n");
+    printf("\n");
     fprintf(filepointer, " Mean Of Subject A:%.2f ", meanA);
+    printf("\n");
     fprintf(filepointer, "Mean Of Subject B:%.2f ", meanB);
-
     printf(" Standard Deviation Of Subject A:%.2f ", stdA);
+    printf("\n");
     printf("Standard Deviation Of Subject B:%.2f ", stdB);
+    printf("\n");
     fprintf(filepointer, " Standard Deviation Of Subject A:%.2f ", stdA);
+    printf("\n");
     fprintf(filepointer, "Standard Deviation Of Subject B:%.2f ", stdB);
     fclose(filepointer);
-    return 0;
+    printf("Processing complete:\n");
+    printf("Grades have been output to a saved filed for records\n");
+    printf("\n");
+
+// single info options menu
+
+    {
+        int menu_options;
+        int e = 0;
+        while(1)
+        {
+            printf("Menu Options\n");
+            printf("\n");
+            printf("Choose from the options below\n");
+            printf("\n");
+            printf("1. to obtain all the students that got diploma\n");
+            printf("2 to arrange subject A in ascending order\n");
+            printf("3. to calculate the average and standard deviation\n");
+            printf("\n");
+            printf("Press E to exit\n");
+            scanf("%d",&menu_options);
+
+            switch (menu_options)
+            {
+                case 1:
+                    diploma();
+                    break;
+                case 2:
+                    sortA();
+                    break;
+                case 3:
+                    avg,std;
+                    break;
+                case 4:
+                    exit(e);
+                default:
+                    printf("not available: please select another option");
+            }
+        }
+    }
 }
